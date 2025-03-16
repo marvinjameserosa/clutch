@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Forensics Challenge</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        #flag-result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Web Forensics Challenge</h1>
+    <p>Find the hidden flag in this page</p>
+
+    <div>
+        <h2>Introduction</h2>
+        <p>Web forensics involves examining websites to discover hidden information. Your task is to find the hidden flag.</p>
+    </div>
+
+    <div>
+        <h2>Challenge: Find the Hidden Flag</h2>
+        <p>The flag has been hidden somewhere on this page. Use your investigative skills to uncover it.</p>
+        <p>Hint: The flag format is a single word.</p>
+        <button id="hint-button">Get a Hint</button>
+        <p id="hint-display" class="hidden">The flag pieces are scattered throughout the page in unexpected places.</p>
+        <div>
+            <h2>Submit Flag</h2>
+            <input type="text" id="flag-input" placeholder="Enter flag">
+            <button onclick="checkFlag()">Submit</button>
+            <p id="flag-result"></p>
+        </div>
+    </div>
+
+    <div style="opacity: 0.01;">part1:cyber</div>
+
+    <script>
+        var secretData = {
+            metrics: {part2: "naut"},
+            user: {level: "beginner", progress: 0},
+            debug: {enabled: false}
+        };
+
+        document.getElementById('hint-button').addEventListener('click', function() {
+            document.getElementById('hint-display').classList.remove('hidden');
+        });
+
+        function checkFlag() {
+            const input = document.getElementById('flag-input');
+            const result = document.getElementById('flag-result');
+            
+            if (input.value.toLowerCase() === 'cybernaut') {
+                result.textContent = 'Congratulations! You found the flag!';
+                result.style.color = 'green';
+            } else {
+                result.textContent = 'That\'s not the flag. Keep searching!';
+                result.style.color = 'red';
+            }
+        }
+        
+        // Challenge data
+        var pageData = [
+            {id: 1, type: "header", content: "Forensics"},
+            {id: 2, type: "section", content: "Challenge"},
+            {id: 3, part3: "dragonheart", type: "section", content: "Flag"}
+        ];
+
+        window.onload = function() {
+            document.title = document.title + " [part4:is:hidden]";
+        }
+    </script>
+
+    <noscript>
+        <span data-flag-part="missing-something"></span>
+    </noscript>
+
+    <footer style="margin-top: 20px; font-size: 12px;">
+        Web Forensics Challenge &copy; 2025
+    </footer>
+</body>
+</html>
